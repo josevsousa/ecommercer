@@ -1,0 +1,40 @@
+{{extend "layout_1.html"}}
+
+{{block featured}}
+<div class="jumbotron">
+	<div class="container">
+		<div class="row">
+		<h2>FEATURED</h2>
+		{{get_thumbnails(featured)}}
+		</div>
+	</div>
+</div>		
+{{end}}
+
+{{block head}}
+	<!-- script -->
+  	<script>
+    	console.log("bobocao")
+    </script>    
+    <!-- style -->
+    <style>
+    	ul{
+    		list-style: none;
+    	}
+    	li.box_thumbnail {
+		    width: 260px;
+		}
+    </style>
+    <!-- carrega funçoes globais desenvolvidas para essa app -->
+    {{include "function1.html"}}
+{{end}}
+
+<!-- manda pra o include do layout_3 -->
+{{block main}}
+<div class="container">	
+	<div class="row">
+	<h2>GALERIA</h2>
+	{{get_thumbnails(products)}}				
+	</div>
+</div>	
+{{end}}
