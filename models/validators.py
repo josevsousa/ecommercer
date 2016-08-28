@@ -6,7 +6,9 @@ from costumvalidators import IS_VALID_BARCODE
 
 # validadores para tabelas
 db.product.name.requires=IS_NOT_EMPTY(error_message='nome obrigatório')
+
 db.product.origin.requires = IS_IN_SET(origins.keys())
+db.product.origin.widget = SQLFORM.widgets.radio.widget
 db.product.barcode.requires = [
 	IS_NOT_EMPTY(error_message="Insira um Barcode"),
 	IS_VALID_BARCODE("987","BARCODE INVALIDO")
