@@ -137,10 +137,11 @@ p36
 sg9
 I00
 sg10
-g34
-ssS'name'
+S'id'
 p37
-(dp38
+ssS'name'
+p38
+(dp39
 g4
 I128
 sg5
@@ -148,11 +149,11 @@ I01
 sg6
 I2
 sg7
-S'CHAR(128) UNIQUE'
-p39
+S'CHAR(128) NOT NULL UNIQUE'
+p40
 sg9
-I00
+I01
 sg10
 S'string'
-p40
+p41
 ss.

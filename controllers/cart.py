@@ -1,4 +1,4 @@
-# coding: utf-8
+# -*- coding: utf-8 -*-
 def show():
 	# exibir carrinho de compras
 	# criar sessao caso nao exista

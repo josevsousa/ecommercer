@@ -1,4 +1,4 @@
-# coding: utf-8
+# -*- coding: utf-8 -*-
 
 def show():
 	# pegar produto no bando de dados
@@ -21,11 +21,11 @@ def edit():
 	# apenas para admin
 	pass
 
-@auth.requires_login()
-@auth.requires_membership("admin")
+# @auth.requires_login()
+# @auth.requires_membership("admin")
 def new():
 	message = None
-	hide_fields("product",["total_price"])
+	#hide_fields("product",["total_price"]) #esconder campos
 	form=SQLFORM(db.product)
 	if form.process().accepted:
 		message = T("Product registered")

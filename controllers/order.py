@@ -1,4 +1,4 @@
-# coding: utf-8
+# -*- coding: utf-8 -*-
 
 def list():
 	# se o usuario for cliente exibir apenas suas compras

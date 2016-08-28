@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.NameError'> global name 'THUMB' is not defined"
+p3
+sS'layer'
+p4
+S'/home/python/Dropbox/Meus_Projetos/web2py_CURSO_2017/applications/ecommercer/controllers/product.py'
+p5
+sS'code'
+p6
+S'# -*- coding: utf-8 -*-\n\ndef show():\n\t# pegar produto no bando de dados\n\t# buscar pelo slug //qualquer campo != id\n\t# acessar api do twitter\n\tpass\n\ndef search():\n\t# receber parametros e efetuar busca\n\tpass\n\ndef list():\n\t#exibir todos os produtos\n\t# apenas para admin\n\tpass\n\ndef edit():\n\t# pegar produto pelo id ou slug\n\t# criar formulario de edicao\n\t# apenas para admin\n\tpass\n\n# @auth.requires_login()\n# @auth.requires_membership("admin")\ndef new():\n\tmessage = None\n\t#hide_fields("product",["total_price"]) #esconder campos\n\tform=SQLFORM(db.product)\n\tif form.process().accepted:\n\t\tmessage = T("Product registered")\n\telif form.errors:\n\t\tmessage = T("Product erros")\n\t\n\treturn dict(form=form, message=message)\nresponse._vars=response._caller(new)\n'
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "/home/python/Dropbox/Meus_Projetos/web2py_CURSO_2017/gluon/restricted.py", line 227, in restricted\n    exec ccode in environment\n  File "/home/python/Dropbox/Meus_Projetos/web2py_CURSO_2017/applications/ecommercer/controllers/product.py", line 36, in <module>\n  File "/home/python/Dropbox/Meus_Projetos/web2py_CURSO_2017/gluon/globals.py", line 417, in <lambda>\n    self._caller = lambda f: f()\n  File "/home/python/Dropbox/Meus_Projetos/web2py_CURSO_2017/applications/ecommercer/controllers/product.py", line 30, in new\n    if form.process().accepted:\n  File "/home/python/Dropbox/Meus_Projetos/web2py_CURSO_2017/gluon/html.py", line 2300, in process\n    self.validate(**kwargs)\n  File "/home/python/Dropbox/Meus_Projetos/web2py_CURSO_2017/gluon/html.py", line 2238, in validate\n    if self.accepts(**kwargs):\n  File "/home/python/Dropbox/Meus_Projetos/web2py_CURSO_2017/gluon/sqlhtml.py", line 1746, in accepts\n    self.vars.id = self.table.insert(**fields)\n  File "/home/python/Dropbox/Meus_Projetos/web2py_CURSO_2017/gluon/packages/dal/pydal/objects.py", line 726, in insert\n    ret = self._db._adapter.insert(self, self._listify(fields))\n  File "/home/python/Dropbox/Meus_Projetos/web2py_CURSO_2017/gluon/packages/dal/pydal/objects.py", line 676, in _listify\n    row[name] = new_value = ofield.compute(row)\n  File "/home/python/Dropbox/Meus_Projetos/web2py_CURSO_2017/applications/ecommercer/models/validators.py", line 20, in <lambda>\n    lambda row: THUMB(row.picture, (200,200))\nNameError: global name \'THUMB\' is not defined\n'
+p11
+s.

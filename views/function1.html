@@ -1,10 +1,15 @@
-{{def get_thumbnails(products):}}
+{{def get_thumbnails(products, box='span3', size=(200,200)):}}
 	<ul>
 	{{for product in products:}}
 
 			<li class="box_thumbnail">
 				<div class="thumbnail">
-				 	<img src="http://placehold.it/260x180" alt="...">
+				 	{{if product.thumbnail:}}
+				 		<img src="{{=URL('home','download',args=[product.thumbnail])}}" alt="...">
+				 	{{else:}}
+				 		<img width="{{=size[0]}}" height="{{=size[1]}}" src="http://placehold.it/260x180" alt="...">
+				 	{{pass}}
+					
 					<div class="caption">	
 						<h3> {{=product.name}} </h3>
 							<p>

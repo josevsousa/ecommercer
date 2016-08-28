@@ -1,10 +1,13 @@
-# coding: utf-8
+# -*- coding: utf-8 -*-
 
 def index():
     categories = db(db.category).select()
     # products = db(db.product.featured == False).select()
     # featured = db(db.product.featured == True).select()
+
+    #add todos os itens em products
     products = db(db.product).select(limitby=(0,100))
+    #tira de products e add em featured
     featured = products.exclude(lambda registro: registro.featured == True)
     
     return dict(products=products,featured=featured)
