@@ -1,0 +1,19 @@
+{{extend "layout_1.html"}}
+
+{{block head}}
+	<style>
+		.list tr td:nth-child(1){
+			width: 55px;
+			padding: 2px;
+			color:white;
+		}
+	</style>
+{{end}}
+
+{{block main}}
+<div class="container">	
+	<div>
+	{{=table}}
+	</div>	
+</div>
+{{end}}

@@ -1,4 +1,15 @@
 # -*- coding: utf-8 -*-
+def contact():
+    form = FORM(
+        INPUT(_type="text", _class="form-control", requires=IS_NOT_EMPTY(), _name="name", _placeholder="You name"),
+        BR(),
+        INPUT(_type="email", _class="form-control", requires=IS_EMAIL(), _name="email", _placeholder="You email"),
+        BR(),
+        BUTTON("Enviar")
+        )
+    form.process()
+    return dict(form=form)
+
 
 def index():
     categories = db(db.category).select()

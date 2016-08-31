@@ -1,10 +1,17 @@
 # -*- coding: utf-8 -*-
+import json
 
-def call():
-    """
-    exposes services. for example:
-    http://..../[app]/default/call/jsonrpc
-    decorate with @services.jsonrpc the functions to expose
-    supports xml, json, xmlrpc, jsonrpc, amfrpc, rss, csv
-    """
-	return service()
+#funcao pra criar o json da tabela
+def productjson():
+	nome = request.vars.nome #?nome= 
+	if nome:
+		query = db.product.name.like("%%%s%%"%name)
+		print 'ok'
+	else:
+		query = db.product.select('name')
+		print "nao"
+	# as_list para retornar json
+	products = db(query).select()
+	print products
+	pass	
+	# return json.dumps(products)

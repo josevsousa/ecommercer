@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 from costumvalidators import IS_VALID_BARCODE
-# from smarthumb import THUMB
-# from miniimage import MINI_IMG
+from smarthumb import SMARTHUMB
+from plugin_ckeditor import CKEditor
+ckeditor = CKEditor(db)
 
+db.product.description.widget = ckeditor.widget
 
 # validadores para tabelas
 db.product.name.requires=IS_NOT_EMPTY(error_message='nome obrigatório')
@@ -14,15 +16,27 @@ db.product.barcode.requires = [
 	IS_VALID_BARCODE("987","BARCODE INVALIDO")
 ]
 
-# computations
+##########################################################################################
+
+# computations total
 db.product.total_price.compute = \
 	lambda row: float(row.unit_price) * float(row.qtd)
 
-# db.product.thumbnail.compute = \
-# 	lambda row: MINI_IMG(row.picture)
+# computations thumbnail
+box = (200, 200)
+db.product.thumbnail.compute = lambda row: SMARTHUMB(row.picture, box)
 
-from smarthumb import SMARTHUMB 
-db.product.thumbnail.compute = lambda row: SMARTHUMB(row.picture, 200, 200)
+def get_miniatura(row):
+     if row.thumbnail: #se usar virtual field tem que ser "row.product.thumbnail"
+          return IMG(_width=50, _heigth=50, _src=URL('home', 'download', args=[row.thumbnail]))
+     else:
+          return IMG(_src="http://placehold.it/50x50")
+
+def get_miniatura_sqlformgrid(row):
+     if row.product.thumbnail: #se usar virtual field tem que ser "row.product.thumbnail"
+          return IMG(_width=50, _heigth=50, _src=URL('home', 'download', args=[row.product.thumbnail]))
+     else:
+          return IMG(_src="http://placehold.it/50x50")
 
 
 # form widgets
@@ -32,8 +46,3 @@ db.product.thumbnail.compute = lambda row: SMARTHUMB(row.picture, 200, 200)
 # validadores customizados
 
 
-# esconder campos da tabela
-def hide_fields(tablename, fields):
-     for field in fields:
-          db[tablename][field].writable = \
-               db[tablename][field].readable = False

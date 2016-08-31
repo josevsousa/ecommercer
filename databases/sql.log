@@ -90,3 +90,6 @@ success!
 success!
 success!
 success!
+timestamp: 2016-08-28T14:50:47.505732
+ALTER TABLE product ADD description CHAR(512);
+success!
